@@ -74,7 +74,7 @@ def parse_markdown(path: Path, styles, story) -> None:
         if line.startswith("```"):
             flush_all()
             if in_code:
-                story.append(Preformatted(escape("\n".join(code_lines), quote=False), styles["Code"]))
+                story.append(Preformatted(escape("\n".join(code_lines), quote=False), styles["CodeCustom"]))
                 story.append(Spacer(1, 5))
                 code_lines = []
                 in_code = False
@@ -124,7 +124,7 @@ def parse_markdown(path: Path, styles, story) -> None:
 
     flush_all()
     if in_code and code_lines:
-        story.append(Preformatted(escape("\n".join(code_lines), quote=False), styles["Code"]))
+        story.append(Preformatted(escape("\n".join(code_lines), quote=False), styles["CodeCustom"]))
 
 
 def main() -> None:
@@ -147,7 +147,7 @@ def main() -> None:
                               leading=14, textColor=colors.HexColor("#34465e"), spaceBefore=5))
     styles.add(ParagraphStyle(name="Small", parent=styles["BodyText"], fontSize=8, leading=10,
                               textColor=colors.HexColor("#667085")))
-    styles.add(ParagraphStyle(name="Code", fontName="Courier", fontSize=7.4, leading=10,
+    styles.add(ParagraphStyle(name="CodeCustom", fontName="Courier", fontSize=7.4, leading=10,
                               leftIndent=7, rightIndent=7, borderWidth=0.4,
                               borderColor=colors.HexColor("#d8dee8"), borderPadding=6,
                               backColor=colors.HexColor("#f5f7fa"), spaceBefore=3, spaceAfter=7))
