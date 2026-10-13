@@ -1,0 +1,10 @@
+[project]
+name = "gmt-mathematical-physics"
+version = "0.1.0"
+description = "Research prototype for Gradient-Memory Transport on finite networks"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10", "matplotlib>=3.7", "reportlab>=4.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["simulation"]
+python_files = ["test_*.py"]
