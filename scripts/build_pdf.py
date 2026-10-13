@@ -74,7 +74,7 @@ def parse_markdown(path: Path, styles, story) -> None:
         if line.startswith("```"):
             flush_all()
             if in_code:
-                story.append(Preformatted("\n".join(code_lines), styles["Code"]))
+                story.append(Preformatted(escape("\n".join(code_lines), quote=False), styles["Code"]))
                 story.append(Spacer(1, 5))
                 code_lines = []
                 in_code = False
@@ -124,7 +124,7 @@ def parse_markdown(path: Path, styles, story) -> None:
 
     flush_all()
     if in_code and code_lines:
-        story.append(Preformatted("\n".join(code_lines), styles["Code"]))
+        story.append(Preformatted(escape("\n".join(code_lines), quote=False), styles["Code"]))
 
 
 def main() -> None:
